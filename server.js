@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 });
 
 app.use(cors({
-    origin: 'https://kevin13469.github.io/order/'
+    origin: '*'
   }));
 
   app.get('/cats', async (req, res) => {
