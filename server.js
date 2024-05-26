@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 const FilePath = 'db.json'
 
 app.use(cors({
-    origin: 'http://127.0.0.1:5500'
+    origin: 'https://kevin13469.github.io/order/'
   }));
 
   app.get('/cats', async (req, res) => {
