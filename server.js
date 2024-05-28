@@ -2,7 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs').promises;
 const bodyParser = require('body-parser');
-const db = require('./db.json'); // 导入您的 JSON 数据文件
 const app = express();
 const jwt = require('jsonwebtoken');
 const jsonfile = require('jsonfile');
@@ -96,10 +95,14 @@ app.post('/600/orders', (req, res) => {
 });
 
 app.put('/orders/:orderId', (req, res) => {
+    const db = require('./db.json');
     const orderId = req.params.orderId;
     const updatedOrder = req.body;
     // 在 db.json 中查找对应的订单
     const orderIndex = db.orders.findIndex(order => order.id === orderId);
+    console.log(orderId,orderIndex)
+    console.log(updatedOrder)
+    console.log(orderIndex)
     if (orderIndex !== -1) {
       // 更新订单的 isDone 属性
       db.orders[orderIndex].isDone = updatedOrder.isDone;
