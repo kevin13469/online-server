@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 
 app.use(cors({
-    origin: 'http://127.0.0.1:5500'
+    origin: '*'
   }));
 
   app.get('/cats', async (req, res) => {
