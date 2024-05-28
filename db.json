@@ -422,7 +422,7 @@
       "orderTime": "10:54:52",
       "takeWay": "外帶",
       "isPaid": false,
-      "isDone": true,
+      "isDone": false,
       "details": [
         {
           "catId": "c05",
