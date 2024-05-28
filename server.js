@@ -2,27 +2,22 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs').promises;
 const bodyParser = require('body-parser');
+ // 导入您的 JSON 数据文件
 const app = express();
 const jwt = require('jsonwebtoken');
 const jsonfile = require('jsonfile');
 app.use(bodyParser.json());
 
-const FilePath = 'db.json'
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-});
 
 app.use(cors({
-    origin: '*'
+    origin: 'http://127.0.0.1:5500'
   }));
 
   app.get('/cats', async (req, res) => {
     try {
       // 从 db.json 文件中读取数据
+      const FilePath = 'db.json'
       const Data = await fs.readFile(FilePath, 'utf8');
       const jsonData = JSON.parse(Data);
   
@@ -46,6 +41,7 @@ app.use(cors({
   
 
 app.get('/additions', (req, res) => {
+    const FilePath = 'db.json'
     jsonfile.readFile(FilePath, (err, data) => {
         if (err) {
             console.error('Error reading database:', err);
@@ -57,6 +53,7 @@ app.get('/additions', (req, res) => {
 });
 
 app.get('/orders', (req, res) => {
+    const FilePath = 'db.json'
     jsonfile.readFile(FilePath, (err, data) => {
         if (err) {
             console.error('Error reading database:', err);
@@ -70,7 +67,7 @@ app.get('/orders', (req, res) => {
 app.post('/600/orders', (req, res) => {
     // 假設 req.body 是 POST 請求中的資料
     const postData = req.body;
-
+    const FilePath = './db.json'
     // 讀取現有的資料庫檔案
     jsonfile.readFile(FilePath, (err, data) => {
         if (err) {
@@ -86,6 +83,9 @@ app.post('/600/orders', (req, res) => {
                     console.error('寫入資料庫時出現錯誤:', err);
                     res.status(500).send('內部伺服器錯誤');
                 } else {
+                    // 在写入数据后手动清除缓存
+                    delete require.cache[require.resolve(FilePath)];
+                    const updatedData = require(FilePath);
                     // 回傳成功訊息或其他適當回應
                     res.json(data.orders);
                 }
@@ -95,35 +95,37 @@ app.post('/600/orders', (req, res) => {
 });
 
 app.put('/orders/:orderId', (req, res) => {
+    const fs = require('fs');
     const db = require('./db.json');
     const orderId = req.params.orderId;
     const updatedOrder = req.body;
+    const FilePath = 'db.json';
+
     // 在 db.json 中查找对应的订单
     const orderIndex = db.orders.findIndex(order => order.id === orderId);
-    console.log(orderId,orderIndex)
-    console.log(updatedOrder)
-    console.log(orderIndex)
+
     if (orderIndex !== -1) {
-      // 更新订单的 isDone 属性
-      db.orders[orderIndex].isDone = updatedOrder.isDone;
-       // 将更新后的数据写入到 db.json 中
-       fs.writeFile(FilePath , JSON.stringify(db, null, 2), (err) => {
-        if (err) {
-          res.status(500).json({ message: '无法更新订单数据' });
-        } else {
-          // 响应成功消息，并返回更新后的订单列表
-          res.status(200).json(db.orders);
-        }
-      });
+        // 更新订单的 isDone 属性
+        db.orders[orderIndex].isDone = updatedOrder.isDone;
+
+        // 将更新后的数据写入到 db.json 中
+        fs.writeFile(FilePath, JSON.stringify(db, null, 2), (err) => {
+            if (err) {
+                res.status(500).json({ message: '无法更新订单数据' });
+            } else {
+                // 响应成功消息，并返回更新后的订单列表
+                res.status(200).json(db.orders);
+            }
+        });
     } else {
-      // 如果找不到订单，返回错误消息
-      res.status(404).json({ message: '找不到该订单' });
+        // 如果找不到订单，返回错误消息
+        res.status(404).json({ message: '找不到该订单' });
     }
-  });
+});
 
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
-
+    const FilePath = 'db.json'
     // 读取用户数据文件
     jsonfile.readFile(FilePath, (err, data) => {
         if (err) {
