@@ -1099,8 +1099,46 @@
       "isSoldOut": false
     }
   ],
-  "orders": [
-    {}
+   "orders": [
+    {
+      "id": "OD1670063897679",
+      "userId": 3,
+      "name": "小明",
+      "phone": "0911333555",
+      "comment": "謝謝老闆",
+      "price": 115,
+      "orderDate": "2022-12-03",
+      "orderTime": "18:38:17",
+      "takeWay": "外帶",
+      "isPaid": false,
+      "isDone": false,
+      "details": [
+        {
+          "catId": "c06",
+          "id": "p061",
+          "name": "早餐店奶茶",
+          "price": 15,
+          "qty": 1,
+          "comment": "",
+          "additems": [
+            "AD021",
+            "AD034"
+          ]
+        },
+        {
+          "catId": "c01",
+          "id": "p012",
+          "name": "玉米蛋餅",
+          "price": 50,
+          "qty": 2,
+          "comment": "裝在一起",
+          "additems": [
+            "AD011",
+            "AD014"
+          ]
+        }
+      ]
+    }
   ],
   "additions": [
     {
@@ -1254,5 +1292,5 @@
       ]
     }
   ]
-},
+}
 
