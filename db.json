@@ -1101,5 +1101,158 @@
   ],
   "orders": [
     {}
+  ],
+  "additions": [
+    {
+      "id": "AH01",
+      "name": "麵種",
+      "isMulti": false,
+      "items": [
+        {
+          "id": "AD011",
+          "name": "拉麵",
+          "price": 0
+        },
+        {
+          "id": "AD012",
+          "name": "烏龍",
+          "price": 0
+        },
+        {
+          "id": "AD013",
+          "name": "冬粉",
+          "price": 0
+        }
+
+      ]
+    },
+    {
+      "id": "AH02",
+      "name": "加料",
+      "isMulti": true,
+      "items": [
+        {
+          "id": "AD021",
+          "name": "豪華版",
+          "price": 60
+        },
+        {
+          "id": "AD022",
+          "name": "玉米",
+          "price": 15
+        },
+        {
+          "id": "AD023",
+          "name": "白菜",
+          "price": 15
+        },
+        {
+          "id": "AD024",
+          "name": "豆芽菜",
+          "price": 15
+        },
+        {
+          "id": "AD025",
+          "name": "高麗菜",
+          "price": 15
+        },
+        {
+          "id": "AD026",
+          "name": "起司片",
+          "price": 15
+        }
+      ]
+    },
+    {
+      "id": "AH03",
+      "name": "加麵",
+      "isMulti": false,
+      "items": [
+        {
+          "id": "AD031",
+          "name": "加免費麵",
+          "price": 0
+        },
+        {
+          "id": "AD033",
+          "name": "加10元麵",
+          "price": 10
+        }
+      ]
+    },
+    {
+      "id": "AH04",
+      "name": "麵種",
+      "isMulti": true,
+      "items": [
+        {
+          "id": "AD041",
+          "name": "意麵",
+          "price": 0
+        },
+        {
+          "id": "AD042",
+          "name": "烏龍",
+          "price": 0
+        },
+        {
+          "id": "AD043",
+          "name": "冬粉",
+          "price": 0
+        },
+        {
+          "id": "AD044",
+          "name": "雞絲麵",
+          "price": 0
+        },
+        {
+          "id": "AD045",
+          "name": "泡麵",
+          "price": 0
+        },
+        {
+          "id": "AD046",
+          "name": "泡飯",
+          "price": 0
+        }
+      ]
+    },
+    {
+      "id": "AH05",
+      "name": "加麵/飯",
+      "isMulti": false,
+      "items": [
+        {
+          "id": "AD051",
+          "name": "加麵/飯",
+          "price": 15
+        }
+      ]
+    },
+    {
+      "id": "AH06",
+      "name": "加起司",
+      "isMulti": false,
+      "items": [
+        {
+          "id": "AD061",
+          "name": "起司",
+          "price": 15
+        }
+      ]
+    },
+    {
+      "id": "AH07",
+      "name": " ",
+      "isMulti": false,
+      "items": [
+        {
+          "id": "AD061",
+          "name": "大",
+          "price": 10
+        }
+      ]
+    }
   ]
-}
+},
+
