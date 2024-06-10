@@ -1204,7 +1204,7 @@
     {
       "id": "AH03",
       "name": "加麵",
-      "isMulti": false,
+      "isMulti": true,
       "items": [
         {
           "id": "AD031",
@@ -1221,7 +1221,7 @@
     {
       "id": "AH04",
       "name": "麵種",
-      "isMulti": true,
+      "isMulti": false,
       "items": [
         {
           "id": "AD041",
@@ -1258,7 +1258,7 @@
     {
       "id": "AH05",
       "name": "加麵/飯",
-      "isMulti": false,
+      "isMulti": true,
       "items": [
         {
           "id": "AD051",
@@ -1270,7 +1270,7 @@
     {
       "id": "AH06",
       "name": "加起司",
-      "isMulti": false,
+      "isMulti": true,
       "items": [
         {
           "id": "AD061",
@@ -1282,7 +1282,7 @@
     {
       "id": "AH07",
       "name": " ",
-      "isMulti": false,
+      "isMulti": true,
       "items": [
         {
           "id": "AD061",
